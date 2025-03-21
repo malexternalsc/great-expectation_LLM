@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: ankane/pgvector:latest
+    container_name: pgvector_db
+    restart: always
+    environment:
+      POSTGRES_USER: GELMUSER
+      POSTGRES_PASSWORD: GELMPASSWORD###
+      POSTGRES_DB: GELMDB
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./pgvector-data:/var/lib/postgresql/data

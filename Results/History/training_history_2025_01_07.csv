@@ -1,0 +1,19 @@
+,Model_name,Learning rate,Lora alpha,optimizer,step,max_seq_length,loss
+6,unsloth/Llama-3.2-3B-bnb-4bit,1.3381526183658019e-05,32,adamw_torch,100,512,1.0204497576
+3,unsloth/Llama-3.2-1B-bnb-4bit,0.000636676,32,adamw_torch,50,512,0.5671101213
+0,unsloth/Llama-3.2-3B-bnb-4bit,0.000397542,32,adamw_8bit,50,512,0.5136895776
+5,unsloth/Llama-3.2-1B-bnb-4bit,0.000299476,16,adamw_torch,100,256,0.5930939913
+7,unsloth/Llama-3.2-1B-bnb-4bit,0.000271278,32,adamw_8bit,100,256,0.5318039060
+9,unsloth/Llama-3.2-3B-bnb-4bit,0.000258307,16,adamw_torch,100,512,0.4587492347
+8,unsloth/Llama-3.2-1B-bnb-4bit,0.000212499,32,adamw_8bit,100,256,0.5837786794
+1,unsloth/Llama-3.2-1B-bnb-4bit,0.000189634,32,adamw_torch,200,256,0.4699383974
+2,unsloth/Llama-3.2-1B-bnb-4bit,0.000150041,32,adamw_torch,200,256,0.4771144390
+4,unsloth/Llama-3.2-3B-bnb-4bit,0.000107759,32,adamw_torch,100,256,0.6257186532
+,nsloth/Llama-3.2-3B-bnb-4bit,0.000103741,32,adamw_8bit,250,512,0.435473204
+5,unsloth/Llama-3.2-3B-bnb-4bit,0.000269403,32,adamw_8bit,150,512,0.436941475
+1,unsloth/Llama-3.2-3B-bnb-4bit,0.000171594,32,adamw_8bit,250,512,0.429701269
+3,unsloth/Llama-3.2-3B-bnb-4bit,0.000170656,32,adamw_8bit,250,512,0.429760247
+4,unsloth/Llama-3.2-3B-bnb-4bit,0.000168702,32,adamw_8bit,250,512,0.429540336
+6,unsloth/Llama-3.2-3B-bnb-4bit,0.000278233,32,adamw_8bit,250,512,0.427588254
+2,unsloth/Llama-3.2-3B-bnb-4bit,0.00022555,32,adamw_8bit,300,512,0.425485104
+Show 102550100 per page,,,,,,,

@@ -1,0 +1,343 @@
+user_prompt,generated_expectations
+For field 'processed_timestamp': Ensure the field is required (not null). Ensure the field matches the type 'timestamp'. Ensue this field exist,"expect_column_to_exist(column=""processed_timestamp"")
+                                    expect_column_values_to_not_be_null(column=""processed_timestamp"")
+                                    expect_column_values_to_be_of_type(column=""processed_timestamp"", type_=""timestamp"")"
+For field 'order_timestamp': Ensure the field is required (not null). Ensure the field matches the type 'timestamp'. Ensue this field exist,"expect_column_to_exist(column=""order_timestamp"")
+                                    expect_column_values_to_not_be_null(column=""order_timestamp"")
+                                    expect_column_values_to_be_of_type(column=""order_timestamp"", type_=""timestamp"")"
+For field 'order_total': Ensure the field is required (not null). Ensure the field matches the type 'long'. Ensue this field exist,"expect_column_to_exist(column=""order_total"")
+                                    expect_column_values_to_not_be_null(column=""order_total"")
+                                    expect_column_values_to_be_of_type(column=""order_total"", type_=""long"")"
+For field 'customer_id': Ensure the field matches the type 'text'. Ensure the field has a maximum length of 20. Ensure the field has a minimum length of 10. Ensue this field exist,"expect_column_to_exist(column=""customer_id"")
+                                    expect_column_value_lengths_to_be_between(column=""customer_id"", min_value=10, max_value=20)
+                                    expect_column_values_to_be_of_type(column=""customer_id"", type_=""text"")"
+For field 'order_id': Ensure the field is required (not null). Ensure the field has unique values. This field should be treated as a primary key. Ensue this field exist,"expect_column_to_exist(column=""order_id"")
+                                    expect_column_values_to_not_be_null(column=""order_id"")
+                                    expect_column_values_to_be_unique(column=""order_id"")"
+Data quality requirements for field 'order_id': duplicate_count(order_id) = 0.,"expect_column_values_to_be_unique(column=""order_id"")"
+For field 'customer_email_address': Ensure the field is required (not null). Ensure the field matches the type 'text'. Ensure the field matches the format 'email'. This field contains Personally Identifiable Information (PII).,"expect_column_values_to_not_be_null(column=""customer_email_address"")
+                                    expect_column_values_to_be_of_type(column=""customer_email_address"", type_=""text"")
+                                    expect_column_values_to_match_regex(column=""customer_email_address"", regex=r""^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"")"
+For field 'lines_item_id': Ensure the field is required (not null). Ensure the field has unique values. Ensure the field matches the type 'text'. This field should be treated as a primary key. Ensue this field exist,"expect_column_to_exist(column=""lines_item_id"")
+                                    expect_column_values_to_not_be_null(column=""lines_item_id"")
+                                    expect_column_values_to_be_unique(column=""lines_item_id"")
+                                    expect_column_values_to_be_of_type(column=""lines_item_id"", type_=""text"")"
+For field 'sku': Ensue this field exist,"expect_column_to_exist(column=""sku"")"
+For field 'order_id': Ensue this field exist,"expect_column_to_exist(column=""order_id"")"
+Data quality requirements for field 'order_id': values in (order_id) must exist in orders (order_id).,"expect_column_values_to_be_in_set(column=""order_id"", value_set=orders['order_id'].tolist())"
+checks for line_items values in (order_id) must exist in orders (order_id),"expect_column_pair_values_to_be_in_set(column_A=""line_items.order_id"", column_B=""orders.order_id"", value_set=orders.order_id)"
+checks for line_items row_count >= 5,"expect_table_row_count_to_be_between(column=""line_item"",min_value=5)"
+checks for orders row_count >= 5,"expect_table_row_count_to_be_between(column=""order""min_value=5)"
+checks for orders duplicate_count(order_id) = 0,"expect_column_values_to_be_unique(column=""order_id"")"
+For field 'payment_method': Ensure the field is required (not null). Ensure the field matches the type 'text'. Ensure this field exists.,"expect_column_to_exist(column=""payment_method"")
+                                    expect_column_values_to_not_be_null(column=""payment_method"")
+                                    expect_column_values_to_be_of_type(column=""payment_method"", type_=""text"")"
+For field 'refund_status': Ensure the field is required (not null). Ensure the field matches the type 'text'. Ensure this field exists.,"expect_column_to_exist(column=""refund_status"")
+                                    expect_column_values_to_not_be_null(column=""refund_status"")
+                                    expect_column_values_to_be_of_type(column=""refund_status"", type_=""text"")"
+For field 'transaction_id': Ensure the field is required (not null). Ensure the field matches the type 'text'. Ensure this field exists.,"expect_column_to_exist(column=""transaction_id"")
+                                    expect_column_values_to_not_be_null(column=""transaction_id"")
+                                    expect_column_values_to_be_of_type(column=""transaction_id"", type_=""text"")"
+For field 'delivery_date': Ensure the field is required (not null). Ensure the field matches the type 'date'. Ensure this field exists.,"expect_column_to_exist(column=""delivery_date"")
+                                    expect_column_values_to_not_be_null(column=""delivery_date"")
+                                    expect_column_values_to_be_of_type(column=""delivery_date"", type_=""date"")"
+For field 'product_description': Ensure the field is required (not null). Ensure the field matches the type 'text'. Ensure this field exists.,"expect_column_to_exist(column=""product_description"")
+                                    expect_column_values_to_not_be_null(column=""product_description"")
+                                    expect_column_values_to_be_of_type(column=""product_description"", type_=""text"")"
+For field 'vendor_id': Ensure the field is required (not null). Ensure the field matches the type 'text'. Ensure this field exists.,"expect_column_to_exist(column=""vendor_id"")
+                                    expect_column_values_to_not_be_null(column=""vendor_id"")
+                                    expect_column_values_to_be_of_type(column=""vendor_id"", type_=""text"")"
+For field 'warehouse_location': Ensure the field is required (not null). Ensure the field matches the type 'text'. Ensure this field exists.,"expect_column_to_exist(column=""warehouse_location"")
+                                    expect_column_values_to_not_be_null(column=""warehouse_location"")
+                                    expect_column_values_to_be_of_type(column=""warehouse_location"", type_=""text"")"
+For field 'category_name': Ensure the field is required (not null). Ensure the field matches the type 'text'. Ensure this field exists.,"expect_column_to_exist(column=""category_name"")
+                                    expect_column_values_to_not_be_null(column=""category_name"")
+                                    expect_column_values_to_be_of_type(column=""category_name"", type_=""text"")"
+For field 'supplier_email': Ensure the field is required (not null). Ensure the field matches the type 'text'. Ensure this field exists.,"expect_column_to_exist(column=""supplier_email"")
+                                    expect_column_values_to_not_be_null(column=""supplier_email"")
+                                    expect_column_values_to_be_of_type(column=""supplier_email"", type_=""text"")"
+For field 'shipment_tracking_number': Ensure the field is required (not null). Ensure the field matches the type 'text'. Ensure this field exists.,"expect_column_to_exist(column=""shipment_tracking_number"")
+                                    expect_column_values_to_not_be_null(column=""shipment_tracking_number"")
+                                    expect_column_values_to_be_of_type(column=""shipment_tracking_number"", type_=""text"")"
+For field 'user_age': Ensure the field is required (not null). Ensure the field matches the type 'integer'. Ensure the field contains values greater than 18. Ensure this field exists.,"expect_column_to_exist(column=""user_age"")
+                                    expect_column_values_to_not_be_null(column=""user_age"")
+                                    expect_column_values_to_be_of_type(column=""user_age"", type_=""int"")
+                                    expect_column_values_to_be_greater_than(column=""user_age"", value=18)"
+For field 'registration_date': Ensure the field matches the type 'date'. Ensure the field contains values less than or equal to the current date. Ensure this field exists.,"expect_column_to_exist(column=""registration_date"")
+                                    expect_column_values_to_be_of_type(column=""registration_date"", type_=""date"")
+                                    expect_column_values_to_be_between(column=""registration_date"", min_value=None, max_value=datetime.datetime.now().date())"
+For field 'is_active': Ensure the field matches the type 'boolean'. Ensure this field exists.,"expect_column_to_exist(column=""is_active"")
+                                    expect_column_values_to_be_of_type(column=""is_active"", type_=""boolean"")"
+For field 'postal_code': Ensure the field matches the type 'text'. Ensure the field matches the format 'ZIP'. Ensure this field exists.,"expect_column_to_exist(column=""postal_code"")
+                                    expect_column_values_to_be_of_type(column=""postal_code"", type_=""text"")
+                                    expect_column_values_to_match_regex(column=""postal_code"", regex=r""^\d{5}(-\d{4})?$"")"
+For field 'loyalty_points': Ensure the field matches the type 'integer'. Ensure the field contains values greater than or equal to 0. Ensure this field exists.,"expect_column_to_exist(column=""loyalty_points"")
+                                    expect_column_values_to_be_of_type(column=""loyalty_points"", type_=""int"")
+                                    expect_column_values_to_be_between(column=""loyalty_points"", min_value=0, max_value=None)"
+For field 'promotion_code': Ensure the field matches the type 'text'. Ensure the field contains unique values. Ensure this field exists.,"expect_column_to_exist(column=""promotion_code"")
+                                    expect_column_values_to_be_of_type(column=""promotion_code"", type_=""text"")
+                                    expect_column_values_to_be_unique(column=""promotion_code"")"
+For field 'review_rating': Ensure the field matches the type 'decimal'. Ensure the field contains values between 1.0 and 5.0. Ensure this field exists.,"expect_column_to_exist(column=""review_rating"")
+                                    expect_column_values_to_be_of_type(column=""review_rating"", type_=""decimal"")
+                                    expect_column_values_to_be_between(column=""review_rating"", min_value=1.0, max_value=5.0)"
+For field 'feedback_comments': Ensure the field matches the type 'text'. Ensure the field has a maximum length of 500. Ensure this field exists.,"expect_column_to_exist(column=""feedback_comments"")
+                                    expect_column_value_lengths_to_be_between(column=""feedback_comments"", min_value=0, max_value=500)
+                                    expect_column_values_to_be_of_type(column=""feedback_comments"", type_=""text"")"
+For field 'manager_id': Ensure the field matches the type 'text'. Ensure values in (manager_id) must exist in employees (employee_id). Ensure this field exists.,"expect_column_to_exist(column=""manager_id"")
+                                    expect_column_values_to_be_of_type(column=""manager_id"", type_=""text"")
+                                    expect_column_values_to_be_in_set(column=""manager_id"", value_set=employees[""employee_id""])"
+For field 'budget': Ensure the field matches the type 'decimal'. Ensure the field contains values greater than or equal to 1000. Ensure this field exists.,"expect_column_to_exist(column=""budget"")
+                                    expect_column_values_to_be_of_type(column=""budget"", type_=""decimal"")
+                                    expect_column_values_to_be_between(column=""budget"", min_value=1000, max_value=None)"
+For field 'session_duration': Ensure the field matches the type 'decimal'. Ensure the field contains values greater than 0.0. Ensure this field exists.,"expect_column_to_exist(column=""session_duration"")
+                                    expect_column_values_to_be_of_type(column=""session_duration"", type=""decimal"")
+                                    expect_column_values_to_be_between(column=""session_duration"", min_value=0.0)"
+For field 'country_code': Ensure the field matches the type 'text'. Ensure the field matches the format 'ISO 3166-1 alpha-2'. Ensure this field exists.,"expect_column_to_exist(column=""country_code"")
+                                    expect_column_values_to_be_of_type(column=""country_code"", type_=""text"")
+                                    expect_column_values_to_match_regex(column=""country_code"", regex=r""^[A-Z]{2}$"")"
+For field 'tax_rate': Ensure the field matches the type 'decimal'. Ensure the field contains values between 0.0 and 1.0. Ensure this field exists.,"expect_column_to_exist(column=""tax_rate"")
+                                    expect_column_values_to_be_of_type(column=""tax_rate"", type_=""decimal"")
+                                    expect_column_values_to_be_between(column=""tax_rate"", min_value=0.0, max_value=1.0)"
+For field 'child_count': Ensure the field matches the type 'integer'. Ensure the field contains values greater than or equal to 0. Ensure this field exists.,"expect_column_to_exist(column=""child_count"")
+                                    expect_column_values_to_be_of_type(column=""child_count"", type_=""int"")
+                                    expect_column_values_to_be_between(column=""child_count"", min_value=0, max_value=None)"
+For field 'account_number': Ensure the field matches the type 'text'. Ensure the field has a fixed length of 10. Ensure this field exists.,"expect_column_to_exist(column=""account_number"")
+                                    expect_column_values_to_be_of_type(column=""account_number"", type_=""text"")
+                                    expect_column_value_lengths_to_equal(column=""account_number"", length=10)"
+For field 'product_name': Ensure the field matches the type 'text'. Ensure the field has a maximum length of 255. Ensure this field exists.,"expect_column_to_exist(column=""product_name"")
+                                    expect_column_value_lengths_to_be_between(column=""product_name"", min_value=0, max_value=255)
+                                    expect_column_values_to_be_of_type(column=""product_name"", type_=""text"")"
+For field 'image_url': Ensure the field matches the type 'text'. Ensure the field matches the format 'URL'. Ensure this field exists.,"expect_column_to_exist(column=""image_url"")
+                                    expect_column_values_to_be_of_type(column=""image_url"", type_=""text"")
+                                    expect_column_values_to_match_regex(column=""image_url"", regex=r""^(https?|ftp)://[^\s/$.?#].[^\s]*$"")"
+For field 'ip_address': Ensure the field matches the type 'text'. Ensure the field matches the format 'IPv4'. Ensure this field exists.,"expect_column_to_exist(column=""ip_address"")
+                                    expect_column_values_to_be_of_type(column=""ip_address"", type_=""text"")
+                                    expect_column_values_to_match_regex(column=""ip_address"", regex=r""^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$"")"
+For field 'response_time': Ensure the field matches the type 'decimal'. Ensure the field contains values less than or equal to 1000. Ensure this field exists.,"expect_column_to_exist(column=""response_time"")
+                                    expect_column_values_to_be_of_type(column=""response_time"", type_=""decimal"")
+                                    expect_column_values_to_be_between(column=""response_time"", max_value=1000,min_value=None)"
+For field 'parent_category': Ensure the field matches the type 'text'. Ensure values in (parent_category) must exist in categories (category_name). Ensure this field exists.,"expect_column_to_exist(column=""parent_category"")
+                                    expect_column_values_to_be_of_type(column=""parent_category"", type_=""text"")
+                                    expect_column_values_to_be_in_set(column=""parent_category"", value_set=[""category_name""])"
+For field 'discount_code': Ensure the field matches the type 'text'. Ensure the field has unique values. Ensure this field exists.,"expect_column_to_exist(column=""discount_code"")
+                                    expect_column_values_to_be_of_type(column=""discount_code"", type_=""text"")
+                                    expect_column_values_to_be_unique(column=""discount_code"")"
+For field 'region_name': Ensure the field matches the type 'text'. Ensure this field exists.,"expect_column_to_exist(column=""region_name"")
+                                    expect_column_values_to_be_of_type(column=""region_name"", type_=""text"")"
+For field 'payment_reference': Ensure the field matches the type 'text'. Ensure the field contains unique values. Ensure this field exists.,"expect_column_to_exist(column=""payment_reference"")
+                                    expect_column_values_to_be_of_type(column=""payment_reference"", type_=""text"")
+                                    expect_column_values_to_be_unique(column=""payment_reference"")"
+For field 'customer_feedback': Ensure the field matches the type 'text'. Ensure the field has a maximum length of 1000. Ensure this field exists.,"expect_column_to_exist(column=""customer_feedback"")
+                                    expect_column_value_lengths_to_be_between(column=""customer_feedback"", min_value=0, max_value=1000)
+                                    expect_column_values_to_be_of_type(column=""customer_feedback"", type_=""text"")"
+For field 'transaction_fee': Ensure the field matches the type 'decimal'. Ensure the field contains values greater than or equal to 0. Ensure this field exists.,"expect_column_to_exist(column=""transaction_fee"")
+                                    expect_column_values_to_be_of_type(column=""transaction_fee"", type_=""decimal"")
+                                    expect_column_values_to_be_between(column=""transaction_fee"", min_value=0, max_value=None)"
+For field 'shipment_weight': Ensure the field matches the type 'decimal'. Ensure the field contains values greater than 0. Ensure this field exists.,"expect_column_to_exist(column=""shipment_weight"")
+                                    expect_column_values_to_be_of_type(column=""shipment_weight"", type_=""decimal"")
+                                    expect_column_values_to_be_between(column=""shipment_weight"", min_value=0)"
+For field 'vendor_rating': Ensure the field matches the type 'decimal'. Ensure the field contains values between 0.0 and 5.0. Ensure this field exists.,"expect_column_to_exist(column=""vendor_rating"")
+                                    expect_column_values_to_be_of_type(column=""vendor_rating"", type_=""decimal"")
+                                    expect_column_values_to_be_between(column=""vendor_rating"", min_value=0.0, max_value=5.0)"
+For field 'tracking_url': Ensure the field matches the type 'text'. Ensure the field matches the format 'URL'. Ensure this field exists.,"expect_column_to_exist(column=""tracking_url"")
+                                    expect_column_values_to_be_of_type(column=""tracking_url"", type_=""text"")
+                                    expect_column_values_to_match_regex(column=""tracking_url"", regex=r""^(https?://[^\s/$.?#].[^\s]*)$"")"
+For field 'currency': Ensure the field matches the type 'text'. Ensure the field matches the format 'ISO 4217'. Ensure this field exists.,"expect_column_to_exist(column=""currency"")
+                                    expect_column_values_to_be_of_type(column=""currency"", type_=""text"")
+                                    expect_column_values_to_match_regex(column=""currency"", regex=r""^[A-Z]{3}$"")"
+For field 'user_age': Ensure the field is required (not null). Ensure the field matches the type 'integer'. Ensure the field contains values greater than 18. Ensure this field exists.,"expect_column_to_exist(column=""user_age"")
+                                    expect_column_values_to_not_be_null(column=""user_age"")
+                                    expect_column_values_to_be_of_type(column=""user_age"", type_=""int"")
+                                    expect_column_values_to_be_between(column=""user_age"", min_value=18, max_value=None)"
+For field 'registration_date': Ensure the field matches the type 'date'. Ensure the field contains values less than or equal to the current date. Ensure this field exists.,"expect_column_to_exist(column=""registration_date"")
+                                    expect_column_values_to_be_of_type(column=""registration_date"", type_=""date"")
+                                    expect_column_values_to_be_between(column=""registration_date"", min_value=None, max_value=datetime.datetime.now().date)"
+For field 'is_active': Ensure the field matches the type 'boolean'. Ensure this field exists.,"expect_column_to_exist(column=""is_active"")
+                                    expect_column_values_to_be_of_type(column=""is_active"", type_=""boolean"")"
+For field 'postal_code': Ensure the field matches the type 'text'. Ensure the field matches the format 'ZIP'. Ensure this field exists.,"expect_column_to_exist(column=""postal_code"")
+                                    expect_column_values_to_be_of_type(column=""postal_code"", type_=""text"")
+                                    expect_column_values_to_match_regex(column=""postal_code"", regex=r""^\d{5}(-\d{4})?$"")"
+For field 'loyalty_points': Ensure the field matches the type 'integer'. Ensure the field contains values greater than or equal to 0. Ensure this field exists.,"expect_column_to_exist(column=""loyalty_points"")
+                                    expect_column_values_to_be_of_type(column=""loyalty_points"", type_=""int"")
+                                    expect_column_values_to_be_between(column=""loyalty_points"", min_value=0)"
+For field 'promotion_code': Ensure the field matches the type 'text'. Ensure the field contains unique values. Ensure this field exists.,"expect_column_to_exist(column=""promotion_code"")
+                                    expect_column_values_to_be_of_type(column=""promotion_code"", type_=""text"")
+                                    expect_column_values_to_be_unique(column=""promotion_code"")"
+For field 'review_rating': Ensure the field matches the type 'decimal'. Ensure the field contains values between 1.0 and 5.0. Ensure this field exists.,"expect_column_to_exist(column=""review_rating"")
+                                    expect_column_values_to_be_of_type(column=""review_rating"", type_=""decimal"")
+                                    expect_column_values_to_be_between(column=""review_rating"", min_value=1.0, max_value=5.0)"
+For field 'feedback_comments': Ensure the field matches the type 'text'. Ensure the field has a maximum length of 500. Ensure this field exists.,"expect_column_to_exist(column=""feedback_comments"")
+                                    expect_column_value_lengths_to_be_between(column=""feedback_comments"", min_value=0, max_value=500)
+                                    expect_column_values_to_be_of_type(column=""feedback_comments"", type_=""text"")"
+For field 'manager_id': Ensure the field matches the type 'text'. Ensure values in (manager_id) must exist in employees (employee_id). Ensure this field exists.,"expect_column_to_exist(column=""manager_id"")
+                                    expect_column_values_to_be_of_type(column=""manager_id"", type_=""text"")
+                                    expect_column_values_to_be_in_set(column=""manager_id"", value_set=employees[""employee_id""])"
+For field 'budget': Ensure the field matches the type 'decimal'. Ensure the field contains values greater than or equal to 1000. Ensure this field exists.,"expect_column_to_exist(column=""budget"")
+                                    expect_column_values_to_be_of_type(column=""budget"", type_=""decimal"")
+                                    expect_column_values_to_be_between(column=""budget"", min_value=1000, max_value=None)"
+For field 'session_duration': Ensure the field matches the type 'decimal'. Ensure the field contains values greater than 0.0. Ensure this field exists.,"expect_column_to_exist(column=""session_duration"")
+                                    expect_column_values_to_be_of_type(column=""session_duration"", type_=""decimal"")
+                                    expect_column_values_to_be_greater_than(column=""session_duration"", value=0.0)"
+For field 'country_code': Ensure the field matches the type 'text'. Ensure the field matches the format 'ISO 3166-1 alpha-2'. Ensure this field exists.,"expect_column_to_exist(column=""country_code"")
+                                    expect_column_values_to_be_of_type(column=""country_code"", type_=""text"")
+                                    expect_column_values_to_match_regex(column=""country_code"", regex=r""^[A-Z]{2}$"")"
+For field 'tax_rate': Ensure the field matches the type 'decimal'. Ensure the field contains values between 0.0 and 1.0. Ensure this field exists.,"expect_column_to_exist(column=""tax_rate"")
+                                    expect_column_values_to_be_of_type(column=""tax_rate"", type_=""decimal"")
+                                    expect_column_values_to_be_between(column=""tax_rate"", min_value=0.0, max_value=1.0)"
+For field 'child_count': Ensure the field matches the type 'integer'. Ensure the field contains values greater than or equal to 0. Ensure this field exists.,"expect_column_to_exist(column=""child_count"")
+                                    expect_column_values_to_be_of_type(column=""child_count"", type_=""int"")
+                                    expect_column_values_to_be_between(column=""child_count"", min_value=0, max_value=None)"
+For field 'account_number': Ensure the field matches the type 'text'. Ensure the field has a fixed length of 10. Ensure this field exists.,"expect_column_to_exist(column=""account_number"")
+                                    expect_column_values_to_be_of_type(column=""account_number"", type_=""text"")
+                                    expect_column_value_lengths_to_equal(column=""account_number"", target_length=10)"
+For field 'product_name': Ensure the field matches the type 'text'. Ensure the field has a maximum length of 255. Ensure this field exists.,"expect_column_to_exist(column=""product_name"")
+                                    expect_column_value_lengths_to_be_between(column=""product_name"", min_value=0, max_value=255)
+                                    expect_column_values_to_be_of_type(column=""product_name"", type_=""text"")"
+For field 'image_url': Ensure the field matches the type 'text'. Ensure the field matches the format 'URL'. Ensure this field exists.,"expect_column_to_exist(column=""image_url"")
+                                    expect_column_values_to_be_of_type(column=""image_url"", type_=""text"")
+                                    expect_column_values_to_match_regex(column=""image_url"", regex=r""^(https?://[^\s/$.?#].[^\s]*)$"")"
+For field 'ip_address': Ensure the field matches the type 'text'. Ensure the field matches the format 'IPv4'. Ensure this field exists.,"expect_column_to_exist(column=""ip_address"")
+                                    expect_column_values_to_be_of_type(column=""ip_address"", type_=""text"")
+                                    expect_column_values_to_match_regex(column=""ip_address"", regex=r""^(?:\d{1,3}\.){3}\d{1,3}$"")"
+For field 'response_time': Ensure the field matches the type 'decimal'. Ensure the field contains values less than or equal to 1000. Ensure this field exists.,"expect_column_to_exist(column=""response_time"")
+                                    expect_column_values_to_be_of_type(column=""response_time"", type_=""decimal"")
+                                    expect_column_values_to_be_less_than(column=""response_time"", value=1000)"
+"For field 'parent_category': Ensure the field matches the type 'text'. Ensure values in (parent_category) must exist in categories (categories = {a,b,c,d,e}). Ensure this field exists.","expect_column_to_exist(column=""parent_category"")
+                                    expect_column_values_to_be_of_type(column=""parent_category"", type_=""text"")
+                                    expect_column_values_to_be_in_set(column=""parent_category"", value_set={a,b,c,d,e})"
+For field 'discount_code': Ensure the field matches the type 'text'. Ensure the field has unique values. Ensure this field exists.,"expect_column_to_exist(column=""discount_code"")
+                                    expect_column_values_to_be_of_type(column=""discount_code"", type_=""text"")
+                                    expect_column_values_to_be_unique(column=""discount_code"")"
+For field 'region_name': Ensure the field matches the type 'text'. Ensure this field exists.,"expect_column_to_exist(column=""region_name"")
+                                    expect_column_values_to_be_of_type(column=""region_name"", type_=""text"")"
+For field 'payment_reference': Ensure the field matches the type 'text'. Ensure the field contains unique values. Ensure this field exists.,"expect_column_to_exist(column=""payment_reference"")
+                                    expect_column_values_to_be_of_type(column=""payment_reference"", type_=""text"")
+                                    expect_column_values_to_be_unique(column=""payment_reference"")"
+For field 'customer_feedback': Ensure the field matches the type 'text'. Ensure the field has a maximum length of 1000. Ensure this field exists.,"expect_column_to_exist(column=""customer_feedback"")
+                                    expect_column_value_lengths_to_be_between(column=""customer_feedback"", min_value=0, max_value=1000)
+                                    expect_column_values_to_be_of_type(column=""customer_feedback"", type_=""text"")"
+For field 'transaction_fee': Ensure the field matches the type 'decimal'. Ensure the field contains values greater than or equal to 0. Ensure this field exists.,"expect_column_to_exist(column=""transaction_fee"")
+                                    expect_column_values_to_be_of_type(column=""transaction_fee"", type_=""decimal"")
+                                    expect_column_values_to_be_between(column=""transaction_fee"", min_value=0, max_value=None)"
+For field 'shipment_weight': Ensure the field matches the type 'decimal'. Ensure the field contains values greater than 0. Ensure this field exists.,"expect_column_to_exist(column=""shipment_weight"")
+                                    expect_column_values_to_be_of_type(column=""shipment_weight"", type_=""decimal"")
+                                    expect_column_values_to_be_between(column=""shipment_weight"", min_value=0)"
+For field 'vendor_rating': Ensure the field matches the type 'decimal'. Ensure the field contains values between 0.0 and 5.0. Ensure this field exists.,"expect_column_to_exist(column=""vendor_rating"")
+                                    expect_column_values_to_be_of_type(column=""vendor_rating"", type_=""decimal"")
+                                    expect_column_values_to_be_between(column=""vendor_rating"", min_value=0.0, +B83max_value=5.0)"
+For field 'tracking_url': Ensure the field matches the type 'text'. Ensure the field matches the format 'URL'. Ensure this field exists.,"expect_column_to_exist(column=""tracking_url"")
+                                    expect_column_values_to_be_of_type(column=""tracking_url"", type_=""text"")
+                                    expect_column_values_to_match_regex(column=""tracking_url"", regex=r""^(https?://[^\s]+)$"")"
+For field 'currency': Ensure the field matches the type 'text'. Ensure the field matches the format 'ISO 4217'. Ensure this field exists.,"expect_column_to_exist(column=""currency"")
+                                    expect_column_values_to_be_of_type(column=""currency"", type_=""text"")
+                                    expect_column_values_to_match_regex(column=""currency"", regex=r""^[A-Z]{3}$"")"
+For field 'user_age': Ensure the field is required (not null). Ensure the field matches the type 'integer'. Ensure the field contains values greater than 18. Ensure this field exists.,"expect_column_to_exist(column=""user_age"")
+                                    expect_column_values_to_not_be_null(column=""user_age"")
+                                    expect_column_values_to_be_of_type(column=""user_age"", type_=""int"")
+                                    expect_column_values_to_be_between(column=""user_age"", min_value=18)"
+For field 'registration_date': Ensure the field matches the type 'date'. Ensure the field contains values less than or equal to the '2024-12-12'. Ensure this field exists.,"expect_column_to_exist(column=""registration_date"")
+                                    expect_column_values_to_be_of_type(column=""registration_date"", type_=""date"")
+                                    expect_column_values_to_be_between(column=""registration_date"", min_value=None, max_value=""2024-12-12"")"
+For field 'is_active': Ensure the field matches the type 'boolean'. Ensure this field exists.,"expect_column_to_exist(column=""is_active"")
+                                    expect_column_values_to_be_of_type(column=""is_active"", type_=""boolean"")"
+For field 'postal_code': Ensure the field matches the type 'text'. Ensure the field matches the format 'ZIP'. Ensure this field exists.,"expect_column_to_exist(column=""postal_code"")
+                                    expect_column_values_to_be_of_type(column=""postal_code"", type_=""text"")
+                                    expect_column_values_to_match_regex(column=""postal_code"", regex=r""^\d{5}(-\d{4})?$"")"
+For field 'loyalty_points': Ensure the field matches the type 'integer'. Ensure the field contains values greater than or equal to 0. Ensure this field exists.,"expect_column_to_exist(column=""loyalty_points"")
+                                    expect_column_values_to_be_of_type(column=""loyalty_points"", type_=""int"")
+                                    expect_column_values_to_be_between(column=""loyalty_points"", min_value=0, max_value=None)"
+For field 'promotion_code': Ensure the field matches the type 'text'. Ensure the field contains unique values. Ensure this field exists.,"expect_column_to_exist(column=""promotion_code"")
+                                    expect_column_values_to_be_of_type(column=""promotion_code"", type_=""text"")
+                                    expect_column_values_to_be_unique(column=""promotion_code"")"
+For field 'review_rating': Ensure the field matches the type 'decimal'. Ensure the field contains values between 1.0 and 5.0. Ensure this field exists.,"expect_column_to_exist(column=""review_rating"")
+                                    expect_column_values_to_be_of_type(column=""review_rating"", type_=""decimal"")
+                                    expect_column_values_to_be_between(column=""review_rating"", min_value=1.0, max_value=5.0)"
+For field 'feedback_comments': Ensure the field matches the type 'text'. Ensure the field has a maximum length of 500. Ensure this field exists.,"expect_column_to_exist(column=""feedback_comments"")
+                                    expect_column_value_lengths_to_be_between(column=""feedback_comments"", min_value=0, max_value=500)
+                                    expect_column_values_to_be_of_type(column=""feedback_comments"", type_=""text"")"
+For field 'manager_id': Ensure the field matches the type 'text'. Ensure values in (manager_id) must exist in employees (employee_id). Ensure this field exists.,"expect_column_to_exist(column=""manager_id"")
+                                    expect_column_values_to_be_of_type(column=""manager_id"", type_=""text"")
+                                    expect_column_pair_values_to_be_in_set(column_A=""manager_id"", column_B=""employee_id"", value_set=employees)"
+For field 'budget': Ensure the field matches the type 'decimal'. Ensure the field contains values greater than or equal to 1000. Ensure this field exists.,"expect_column_to_exist(column=""budget"")
+                                    expect_column_values_to_be_of_type(column=""budget"", type_=""decimal"")
+                                    expect_column_values_to_be_between(column=""budget"", min_value=1000, max_value=None)"
+For field 'session_duration': Ensure the field matches the type 'decimal'. Ensure the field contains values greater than 0.0. Ensure this field exists.,"expect_column_to_exist(column=""session_duration"")
+                                    expect_column_values_to_be_of_type(column=""session_duration"", type_=""decimal"")
+                                    expect_column_values_to_be_greater_than(column=""session_duration"", threshold=0.0)"
+For field 'country_code': Ensure the field matches the type 'text'. Ensure the field matches the format 'ISO 3166-1 alpha-2'. Ensure this field exists.,"expect_column_to_exist(column=""country_code"")
+                                    expect_column_values_to_be_of_type(column=""country_code"", type_=""text"")
+                                    expect_column_values_to_match_regex(column=""country_code"", regex=r""^[A-Z]{2}$"")"
+For field 'tax_rate': Ensure the field matches the type 'decimal'. Ensure the field contains values between 0.0 and 1.0. Ensure this field exists.,"expect_column_to_exist(column=""tax_rate"")
+                                    expect_column_values_to_be_of_type(column=""tax_rate"", type_=""decimal"")
+                                    expect_column_values_to_be_between(column=""tax_rate"", min_value=0.0, max_value=1.0)"
+For field 'child_count': Ensure the field matches the type 'integer'. Ensure the field contains values greater than or equal to 0. Ensure this field exists.,"expect_column_to_exist(column=""child_count"")
+                                    expect_column_values_to_be_of_type(column=""child_count"", type_=""int"")
+                                    expect_column_values_to_be_between(column=""child_count"", min_value=0, max_value=None)"
+For field 'account_number': Ensure the field matches the type 'text'. Ensure the field has a fixed length of 10. Ensure this field exists.,"expect_column_to_exist(column=""account_number"")
+                                    expect_column_values_to_be_of_type(column=""account_number"", type_=""text"")
+                                    expect_column_value_lengths_to_equal(column=""account_number"", length=10)"
+For field 'product_name': Ensure the field matches the type 'text'. Ensure the field has a maximum length of 255. Ensure this field exists.,"expect_column_to_exist(column=""product_name"")
+                                    expect_column_value_lengths_to_be_between(column=""product_name"", min_value=0, max_value=255)
+                                    expect_column_values_to_be_of_type(column=""product_name"", type_=""text"")"
+For field 'image_url': Ensure the field matches the type 'text'. Ensure the field matches the format 'URL'. Ensure this field exists.,"expect_column_to_exist(column=""image_url"")
+                                    expect_column_values_to_be_of_type(column=""image_url"", type_=""text"")
+                                    expect_column_values_to_match_regex(column=""image_url"", regex=r""^(http|https)://[^\s/$.?#].[^\s]*$"")"
+For field 'ip_address': Ensure the field matches the type 'text'. Ensure the field matches the format 'IPv4'. Ensure this field exists.,"expect_column_to_exist(column=""ip_address"")
+                                    expect_column_values_to_be_of_type(column=""ip_address"", type_=""text"")
+                                    expect_column_values_to_match_regex(column=""ip_address"", regex=r""^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){2}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$"")"
+For field 'response_time': Ensure the field matches the type 'decimal'. Ensure the field contains values less than or equal to 1000. Ensure this field exists.,"expect_column_to_exist(column=""response_time"")
+                                    expect_column_values_to_be_of_type(column=""response_time"", type_=""decimal"")
+                                    expect_column_values_to_be_less_than(column=""response_time"", value=1000)"
+For field 'parent_category': Ensure the field matches the type 'text'. Ensure values in (parent_category) must exist in categories (category_name). Ensure this field exists.,"expect_column_to_exist(column=""parent_category"")
+                                    expect_column_values_to_be_of_type(column=""parent_category"", type_=""text"")
+                                    expect_column_values_to_be_in_set(column=""parent_category"", value_set=category_name)"
+For field 'discount_code': Ensure the field matches the type 'text'. Ensure the field has unique values. Ensure this field exists.,"expect_column_to_exist(column=""discount_code"")
+                                    expect_column_values_to_be_of_type(column=""discount_code"", type_=""text"")
+                                    expect_column_values_to_be_unique(column=""discount_code"")"
+For field 'region_name': Ensure the field matches the type 'text'. Ensure this field exists.,"expect_column_to_exist(column=""region_name"")
+                                    expect_column_values_to_be_of_type(column=""region_name"", type_=""text"")"
+For field 'payment_reference': Ensure the field matches the type 'text'. Ensure the field contains unique values. Ensure this field exists.,"expect_column_to_exist(column=""payment_reference"")
+                                    expect_column_values_to_be_of_type(column=""payment_reference"", type_=""text"")
+                                    expect_column_values_to_be_unique(column=""payment_reference"")"
+For field 'customer_feedback': Ensure the field matches the type 'text'. Ensure the field has a maximum length of 1000. Ensure this field exists.,"expect_column_to_exist(column=""customer_feedback"")
+                                    expect_column_value_lengths_to_be_between(column=""customer_feedback"", min_value=0, max_value=1000)
+                                    expect_column_values_to_be_of_type(column=""customer_feedback"", type_=""text"")"
+For field 'transaction_fee': Ensure the field matches the type 'decimal'. Ensure the field contains values greater than or equal to 0. Ensure this field exists.,"expect_column_to_exist(column=""transaction_fee"")
+                                    expect_column_values_to_be_of_type(column=""transaction_fee"", type_=""decimal"")
+                                    expect_column_values_to_be_between(column=""transaction_fee"", min_value=0, max_value=None)"
+For field 'shipment_weight': Ensure the field matches the type 'decimal'. Ensure the field contains values greater than 0. Ensure this field exists.,"expect_column_to_exist(column=""shipment_weight"")
+                                    expect_column_values_to_be_of_type(column=""shipment_weight"", type_=""decimal"")
+                                    expect_column_values_to_be_between(column=""shipment_weight"", min_value=0, max_value=None)"
+For field 'vendor_rating': Ensure the field matches the type 'decimal'. Ensure the field contains values between 0.0 and 5.0. Ensure this field exists.,"expect_column_to_exist(column=""vendor_rating"")
+                                    expect_column_values_to_be_of_type(column=""vendor_rating"", type_=""decimal"")
+                                    expect_column_values_to_be_between(column=""vendor_rating"", min_value=0.0, max_value=5.0)"
+For field 'tracking_url': Ensure the field matches the type 'text'. Ensure the field matches the format 'URL'. Ensure this field exists.,"expect_column_to_exist(column=""tracking_url"")
+                                    expect_column_values_to_be_of_type(column=""tracking_url"", type_=""text"")
+                                    expect_column_values_to_match_regex(column=""tracking_url"", regex=r""^(http|https)://[^\s/$.?#].[^\s]*$"")"
+For field 'currency': Ensure the field matches the type 'text'. Ensure the field matches the format 'ISO 4217'. Ensure this field exists.,"expect_column_to_exist(column=""currency"")
+                                    expect_column_values_to_be_of_type(column=""currency"", type_=""text"")
+                                    expect_column_values_to_match_regex(column=""currency"", regex=r""^[A-Z]{3}$"")"
+For field 'user_age': Ensure the field is required (not null). Ensure the field matches the type 'integer'. Ensure the field contains values greater than 18. Ensure this field exists.,"expect_column_to_exist(column=""user_age"")
+                                    expect_column_values_to_not_be_null(column=""user_age"")
+                                    expect_column_values_to_be_of_type(column=""user_age"", type_=""int"") 
+                                    expect_column_values_to_be_between(column=""user_age"", min_value=18, max_value=None)"
+For field 'registration_date': Ensure the field matches the type 'date'. Ensure the field contains values less than or equal to the current date. Ensure this field exists.,"expect_column_to_exist(column=""registration_date"")
+                                    expect_column_values_to_be_of_type(column=""registration_date"", type_=""date"")
+                                    expect_column_values_to_be_between(column=""registration_date"", min_value=None, max_value=""current_date"")"
+For field 'is_active': Ensure the field matches the type 'boolean'. Ensure this field exists.,"expect_column_to_exist(column=""is_active"")
+                                    expect_column_values_to_be_of_type(column=""is_active"", type_=""boolean"")"
+Ensure values in the `user_id` column are unique.,"expect_column_values_to_be_unique(column=""user_id"")"
+Ensure the `email_address` column has no null values.,"expect_column_values_to_not_be_null(column=""email_address"")"
+Ensure the `optional_field` column has only null values.,"expect_column_values_to_be_null(column=""optional_field"")"
+Ensure the `age` column contains values of type `integer`.,"expect_column_values_to_be_of_type(column=""age"", type_=""integer"")"
+"Ensure the `status` column values are one of the types: `text`,","expect_column_values_to_be_in_type_list(column=""status"", type_list=[""text""])"
+"Ensure the `country_code` column contains values within the set `['US', 'CA', 'MX']`.","expect_column_values_to_be_in_set(column=""country_code"", value_set=['US', 'CA', 'MX'])"
+"Ensure the `age` column does not contain values in the set `[999, -1]`.","expect_column_values_to_not_be_in_set(column=""age"", value_set=[999, -1])"
+Ensure the `score` column values are between 0 and 100.,"expect_column_values_to_be_between(column=""score"", min_value=0, max_value=100)"
+Ensure the `transaction_date` column values are monotonically increasing.,"expect_column_values_to_be_increasing(column=""transaction_date"")"
+Ensure the `invoice_number` column values are monotonically decreasing.,"expect_column_values_to_be_decreasing(column=""invoice_number"")"
+"Ensure the `category` column contains only distinct values matching `['Electronics', 'Apparel']`.","expect_column_distinct_values_to_equal_set(column=""category"", value_set=['Electronics', 'Apparel'])"
+"Ensure the `product_code` column contains at least these values: `['A1', 'B2']`.","expect_column_values_to_contain_set(column=""product_code"", value_set=[""A1"", ""B2""])"
+Ensure the mean of the `order_amount` column is between 100 and 500.,"expect_column_mean_to_be_between(column=""order_amount"", min_value=100, max_value=500)"
+Ensure the median of the `rating` column is between 3 and 4.,"expect_column_median_to_be_between(column=""rating"", min_value=3, max_value=4)"
+Ensure the standard deviation of the `sales` column is between 10 and 50.,"expect_column_stdev_to_be_between(column=""sales"", min_value=10, max_value=50)"

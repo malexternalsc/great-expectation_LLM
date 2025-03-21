@@ -1,0 +1,13 @@
+FROM postgres:15
+
+# Install required dependencies
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    libpq-dev \
+    wget \
+    gnupg2 \
+    lsb-release \
+    postgresql-server-dev-15
+
+# Default Command
+CMD ["postgres"]
